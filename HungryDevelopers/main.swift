@@ -8,8 +8,6 @@
 
 import Foundation
 
-print("Hello, World!")
-
 class Spoon {
     private var lock = NSLock()
     var index: Int = 0
@@ -33,6 +31,8 @@ class Developer {
     }
     
     func think() {
+        print("\(name) is thinking")
+        
         if leftSpoon.index < rightSpoon.index {
             leftSpoon.pickUp()
             rightSpoon.pickUp()
@@ -40,9 +40,6 @@ class Developer {
            rightSpoon.pickUp()
            leftSpoon.pickUp()
         }
-        
-        
-        print("\(name) is thinking")
     }
     
     func eat() {
@@ -82,7 +79,6 @@ dev2.leftSpoon.index = 2
 dev3.leftSpoon.index = 3
 dev4.leftSpoon.index = 4
 dev5.leftSpoon.index = 5
-
 
 DispatchQueue.concurrentPerform(iterations: 5) {
     developers[$0].run()
